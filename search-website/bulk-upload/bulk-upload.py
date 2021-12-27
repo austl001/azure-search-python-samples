@@ -17,8 +17,8 @@ from azure.search.documents.indexes.models import (
 )
 
 # Get the service name (short name) and admin API key from the environment
-service_name = 'YOUR-SEARCH-SERVICE-NAME'
-key = 'YOUR-SEARCH-SERVICE-ADMIN-API-KEY'
+service_name = 'search-test-123'
+key = 'FA2AD4CC12667C7382DCDCF816FF82DB'
 endpoint = "https://{}.search.windows.net/".format(service_name)
 
 # Give your index a name
