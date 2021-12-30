@@ -12,7 +12,7 @@ export default function Facets(props) {
         facetName = facetName.trim();
         facetName = capitalizeFirstLetter(facetName);
 
-        facetName = facetName.replace('_', ' ');
+        facetName = facetName.replaceAll('_', ' ');
         return facetName;
     }
 
