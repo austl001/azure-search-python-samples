@@ -12,7 +12,7 @@ export default function Result(props) {
             <div className="card-body">
                 <h6 className="title-style">{props.document.metadata_storage_name}</h6>
                 <h6 className="card-text">{document.keyPhrases?.join(' | ')}</h6>
-                <p className="card-text">{highlights}</p>
+                <p className="card-text">{props.highlights}</p>
             </div>
         </a>
     </div>
