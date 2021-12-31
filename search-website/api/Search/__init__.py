@@ -108,8 +108,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             search_text=q, top=top,skip=skip, facets=facetKeys, 
             filter=filter, include_total_count=True,
             highlight_fields=("merged_text"), 
-            highlight_pre_tag = '<span style = "background-color: #f5e8a3">',
-            highlight_post_tag = '</span>'
+            highlight_pre_tag = "<span class='highlight'>",
+            highlight_post_tag = "</span>"
             )
         
         returned_docs = new_shape(search_results)
