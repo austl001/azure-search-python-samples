@@ -10,6 +10,7 @@ export default function Results(props) {
         key={index} 
         document={result.document}
         highlights={result.highlights}
+        score={result.score}
       />;
   });
 
