@@ -1,11 +1,10 @@
 import React from 'react';
+import parse from 'html-react-parser';
 
 import './Result.css';
 
 export default function Result(props) {
     
-    var parse = require('html-react-parser');
-
     console.log(`result prop = ${JSON.stringify(props)}`)
     
     return(
