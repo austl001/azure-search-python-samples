@@ -4,6 +4,8 @@ import './Result.css';
 
 export default function Result(props) {
     
+    var parse = require('html-react-parser');
+
     console.log(`result prop = ${JSON.stringify(props)}`)
     
     return(
@@ -16,9 +18,7 @@ export default function Result(props) {
             </h5>
             <h6 className="card-text">Search Score: {props.score.toLocaleString()}</h6>
             <h6 className="card-text">{props.document.keyPhrases?.join(' | ')}</h6>
-            <p className="card-text">
-                <div dangerouslySetInnerHTML={props.highlights.merged_text}/>
-            </p>
+            <p className="card-text">{parse(props.highlights.merged_text)}</p>
         </div>
     </div>
     );
