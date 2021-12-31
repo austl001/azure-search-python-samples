@@ -11,8 +11,8 @@ export default function Result(props) {
         <a href={`/details/${props.document.id}`}>
             <div className="card-body">
                 <h6 className="title-style">{props.document.metadata_storage_name}</h6>
-                <h6 className="card-text">{document.keyPhrases?.join(' | ')}</h6>
-                <p className="card-text">{props.highlights}</p>
+                <h6 className="card-text">{props.document.keyPhrases?.join(' | ')}</h6>
+                <p className="card-text">{props.merged_text}</p>
             </div>
         </a>
     </div>
