@@ -67,7 +67,7 @@ def new_shape(docs):
         
         new_document = {}
         new_document["score"]=item["@search.score"]
-        new_document["highlights"]=item["@search.highlights"]["merged_text"]
+        new_document["highlights"]=item["@search.highlights"]
 
         new_shape = {}
         new_shape["id"]=item["id"]
@@ -106,9 +106,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         
         search_results = search_client.search(
             search_text=q, top=top,skip=skip, facets=facetKeys, 
-            filter=filter, include_total_count=True, highlight_fields=['merged_text'],
-            highlight_pre_tag= '<span style = "background-color: #f5e8a3; color: #000000">',
-            highlight_post_tag='</span>'
+            filter=filter, include_total_count=True,
+            highlight_fields=("merged_text"), 
+            highlight_pre_tag = '<span style = "background-color: #f5e8a3">',
+            highlight_post_tag = '</span>'
             )
         
         returned_docs = new_shape(search_results)

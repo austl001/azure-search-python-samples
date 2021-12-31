@@ -16,7 +16,7 @@ export default function Result(props) {
             </h5>
             <h6 className="card-text">Search Score: {props.score.toLocaleString()}</h6>
             <h6 className="card-text">{props.document.keyPhrases?.join(' | ')}</h6>
-            <p className="card-text">{props.highlights}</p>
+            <p className="card-text">{props.highlights.merged_text}</p>
         </div>
     </div>
     );
