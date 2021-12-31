@@ -9,6 +9,7 @@ export default function Results(props) {
     return <Result 
         key={index} 
         document={result.document}
+        highlights={result.highlights}
       />;
   });
 
