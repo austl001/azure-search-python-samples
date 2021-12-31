@@ -106,7 +106,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         
         search_results = search_client.search(
             search_text=q, top=top,skip=skip, facets=facetKeys, 
-            filter=filter, include_total_count=True, highlight_fields='merged_text',
+            filter=filter, include_total_count=True, highlight_fields=['merged_text'],
             highlight_pre_tag= '<span style = "background-color: #f5e8a3; color: #000000">',
             highlight_post_tag='</span>'
             )
