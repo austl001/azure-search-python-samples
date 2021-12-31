@@ -10,9 +10,10 @@ export default function Result(props) {
     <div className="card result">
         <a href={`/details/${props.document.id}`}>
             <div className="card-body">
-                <h6 className="title-style">{props.document.metadata_storage_name}</h6>
+                <h5 className="title-style">{props.document.metadata_storage_name}</h5>
+                <h6 className="card-text">Search Score: {props.score}</h6>
                 <h6 className="card-text">{props.document.keyPhrases?.join(' | ')}</h6>
-                <p className="card-text">{props.merged_text}</p>
+                <p className="card-text">{props.highlights}</p>
             </div>
         </a>
     </div>
