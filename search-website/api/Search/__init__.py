@@ -67,7 +67,7 @@ def new_shape(docs):
         
         new_document = {}
         new_document["score"]=item["@search.score"]
-        new_document["highlights"]=item["@search.highlights"]
+        new_document["highlights"]=item["@search.highlights"]["merged_text"]
 
         new_shape = {}
         new_shape["id"]=item["id"]
@@ -90,7 +90,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     # variables sent in body
     req_body = req.get_json()
     q = req_body.get('q')
-    top = req_body.get('top') or 8
+    top = req_body.get('top') or 5
     skip = req_body.get('skip') or 0
     filters = req_body.get('filters') or []
 
@@ -104,7 +104,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     if q:
         logging.info(f"/Search q = {q}")
         
-        search_results = search_client.search(search_text=q, top=top,skip=skip, facets=facetKeys, filter=filter, include_total_count=True)
+        search_results = search_client.search(
+            search_text=q, top=top,skip=skip, facets=facetKeys, 
+            filter=filter, include_total_count=True, highlight_fields='merged_text',
+            highlight_pre_tag= '<span style = "background-color: #f5e8a3; color: #000000">',
+            highlight_post_tag='</span>'
+            )
         
         returned_docs = new_shape(search_results)
         returned_count = search_results.get_count()
