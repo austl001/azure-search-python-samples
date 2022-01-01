@@ -32,7 +32,7 @@ export default function Details() {
   // View default is loading with no active tab
   let detailsBody = (<CircularProgress />),
       resultStyle = "nav-link",
-      rawStyle    = "nav-link";
+      rawStyle    = "nav-link",
       phrasesStyle = "nav-link";
 
   if (!isLoading && document) {
