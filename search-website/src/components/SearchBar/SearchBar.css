@@ -12,3 +12,15 @@ div.container a.input-group-btn {
 .input-group {
     flex-wrap: nowrap;
 }
+
+.btn-primary {
+    color: #fff;
+    background-color: #00A499;
+    border-color: #00A499;
+}
+
+.btn-primary a:hover{
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
