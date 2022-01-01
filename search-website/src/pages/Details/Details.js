@@ -33,6 +33,7 @@ export default function Details() {
   let detailsBody = (<CircularProgress />),
       resultStyle = "nav-link",
       rawStyle    = "nav-link";
+      phrasesStyle = "nav-link";
 
   if (!isLoading && document) {
     // View result
