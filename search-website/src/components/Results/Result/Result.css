@@ -8,12 +8,6 @@
     margin-bottom: 3px;
     padding-bottom: 3px;
     box-sizing: border-box;
-    cursor: pointer;
-}
-
-.result:hover,
-.result:active {
-    background-color: #C0DDF5;
 }
 
 .title-style {
@@ -27,8 +21,4 @@
     height: auto;
     max-height: 12em;
     vertical-align: middle;
-}
-
-.highlight {
-    background-color: #f5e8a3
 }
