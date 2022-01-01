@@ -1,8 +1,15 @@
 .main--details {
     padding-top: 2em;
+    justify-content: center;
 };
 
 .image {
     width: 10em;
     height: auto;
+}
+
+.keyPhrases {
+    vertical-align: middle;
+    text-align: justify;
+    color: darkgrey;
 }

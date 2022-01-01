@@ -19,7 +19,7 @@ div.container a.input-group-btn {
     border-color: #00A499;
 }
 
-.btn-primary a:hover{
+.btn-primary:hover{
     color: #fff;
     background-color: #17a2b8;
     border-color: #17a2b8;

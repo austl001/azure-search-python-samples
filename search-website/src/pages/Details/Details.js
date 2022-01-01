@@ -41,15 +41,13 @@ export default function Details() {
       detailsBody = (
         <div className="card-body">
           <h5 className="card-title">{document.metadata_storage_name}</h5>
-          <h6 className="card-text">{document.keyPhrases?.join(' | ')}</h6>
-          <h5 className="card-text">{document.Test3}</h5>
           <p className="card-text">{document.merged_text}</p>
         </div>
       );
     }
 
     // View raw data
-    else {
+    else if (selectedTab === 1) {
       rawStyle += " active";
       detailsBody = (
         <div className="card-body text-left">
@@ -58,6 +56,15 @@ export default function Details() {
           </code></pre>
         </div>
       );
+    }
+    else {
+      phrasesStyle += " active";
+      detailsBody = (
+        <div className="card-body">
+          <h5 className="card-title">Key Phrases</h5>
+          <p className="card-text keyPhrases">{document.keyPhrases?.join(' | ')}</p>          
+        </div>
+      )
     }
   }
 
@@ -68,6 +75,7 @@ export default function Details() {
           <ul className="nav nav-tabs card-header-tabs">
               <li className="nav-item"><button className={resultStyle} onClick={() => setTab(0)}>Result</button></li>
               <li className="nav-item"><button className={rawStyle} onClick={() => setTab(1)}>Raw Data</button></li>
+              <li className="nav-item"><button className={phrasesStyle} onClick={() => setTab(2)}>Raw Data</button></li>
           </ul>
         </div>
         {detailsBody}

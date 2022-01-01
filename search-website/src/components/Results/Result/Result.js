@@ -17,8 +17,6 @@ export default function Result(props) {
             <h6>Search Score: {props.score.toLocaleString()}</h6>
             <h6>Search highlights:</h6>
             <p className="highlights" dangerouslySetInnerHTML={{__html: props.highlights.merged_text}}/>
-            <h6>Document key phrases:</h6>
-            <p className="keyPhrases">{props.document.keyPhrases?.join(' | ')}</p>
         </div>
     </div>
     );
