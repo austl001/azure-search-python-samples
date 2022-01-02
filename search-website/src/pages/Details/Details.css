@@ -11,5 +11,11 @@
 .keyPhrases {
     vertical-align: middle;
     text-align: justify;
-    color: darkgrey;
+    color: #6B7281;
+}
+
+.p {
+    vertical-align: middle;
+    text-align: justify;
+    color: #6B7281;
 }

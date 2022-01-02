@@ -49,21 +49,20 @@ export default function Details() {
 
     // View raw data
     else if (selectedTab === 1) {
+      phrasesStyle += " active";
+      detailsBody = (
+        <div className="card-body">
+          <p className="card-text keyPhrases">{document.keyPhrases?.join(' | ')}</p>          
+        </div>
+      );
+    }
+    else {
       rawStyle += " active";
       detailsBody = (
         <div className="card-body text-left">
           <pre><code>
             {JSON.stringify(document, null, 2)}
           </code></pre>
-        </div>
-      );
-    }
-    else {
-      phrasesStyle += " active";
-      detailsBody = (
-        <div className="card-body">
-          <h5 className="card-title">Key Phrases</h5>
-          <p className="card-text keyPhrases">{document.keyPhrases?.join(' | ')}</p>          
         </div>
       )
     }
@@ -74,9 +73,9 @@ export default function Details() {
       <div className="card text-center result-container">
         <div className="card-header">
           <ul className="nav nav-tabs card-header-tabs">
-              <li className="nav-item"><button className={resultStyle} onClick={() => setTab(0)}>Result</button></li>
-              <li className="nav-item"><button className={rawStyle} onClick={() => setTab(1)}>Raw Data</button></li>
-              <li className="nav-item"><button className={phrasesStyle} onClick={() => setTab(2)}>Raw Data</button></li>
+              <li className="nav-item"><button className={resultStyle} onClick={() => setTab(0)}>Full Text</button></li>
+              <li className="nav-item"><button className={phrasesStyle} onClick={() => setTab(1)}>Key Phrases</button></li>
+              <li className="nav-item"><button className={rawStyle} onClick={() => setTab(2)}>Raw Data</button></li>
           </ul>
         </div>
         {detailsBody}
