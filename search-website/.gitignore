@@ -129,3 +129,8 @@ obj
 appsettings.json
 local.settings.json
 .python_packages
+
+# Upload Documents
+upload-documents/
+
+search-website/api/local.settings.json
