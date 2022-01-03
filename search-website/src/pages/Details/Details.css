@@ -8,14 +8,34 @@
     height: auto;
 }
 
+.results {
+    vertical-align: middle;
+    text-align: justify;
+    color: #6B7281;
+}
+
 .keyPhrases {
     vertical-align: middle;
     text-align: justify;
     color: #6B7281;
 }
 
-.p {
+p, .p {
     vertical-align: middle;
     text-align: justify;
     color: #6B7281;
+}
+
+.nav-link {
+    color: #000;
+}
+
+.nav-link:hover {
+    color: #6B7281;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #005F83;
 }

@@ -42,7 +42,7 @@ export default function Details() {
       detailsBody = (
         <div className="card-body">
           <h5 className="card-title">{document.metadata_storage_name}</h5>
-          <p className="card-text">{document.merged_text}</p>
+          <p className="card-text results">{document.merged_text}</p>
         </div>
       );
     }
