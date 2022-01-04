@@ -8,6 +8,7 @@
 import os
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 import json
+import requests
 
 # Instantiate blob service using connection string from Azure CLI when creating storage account
 
@@ -51,8 +52,6 @@ for blob in blob_list:
 # api_key = "FA2AD4CC12667C7382DCDCF816FF82DB"
 
 # connect Azure cognitive search to the blob storage
-
-import requests
 
 service_name = config["Values"]["SearchServiceName"]
 api_version = config["Values"]["ApiVersion"]

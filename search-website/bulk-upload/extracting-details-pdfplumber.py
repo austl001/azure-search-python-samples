@@ -58,10 +58,12 @@ print(type_list)
 
 df = pd.DataFrame(
     {
-    "pdfFileName" : pdf_list,
-    "pdfTitle" : pdf_titles,
-    "pdfType": type_list
+    "FileName" : pdf_list,
+    "DocumentTitle" : pdf_titles,
+    "DocumentType": type_list
     }
 )
 
 print(df)
+
+df.to_pickle("bulk-upload/blob.metadata.pkl")

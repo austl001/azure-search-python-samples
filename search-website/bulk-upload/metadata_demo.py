@@ -1,7 +1,7 @@
 
-import os
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 import json
+import pandas as pd
 
 # Instantiate blob service using connection string from Azure CLI when creating storage account
 
@@ -27,22 +27,14 @@ len(blobs_pdf_list)
 
 # Setting meta data
 
-metadata1 = {"Test1":"TRUE", "Test2":"FALSE", "Test3":"2021-01-01"}
-metadata2 = {"Test1":"FALSE", "Test2":"TRUE", "Test3":"2020-06-01"}
+df = pd.DataFrame(pd.read_pickle("bulk-upload/blob.metadata.pkl"))
 
-for blob in blobs_pdf_list[0:24]: 
-    blob_client = BlobClient.from_connection_string(
-    container_name = container_name, 
-    blob_name = blob, 
-    conn_str = connection_string
-    )
-    blob_client.set_blob_metadata(metadata = metadata1)
-
-for blob in blobs_pdf_list[24:49]:
+for blob in blobs_pdf_list:
+    df_blob = df[df["FileName"] == blob]
+    metadata = df_blob.to_dict(orient = "records")[0]
     blob_client = BlobClient.from_connection_string(
         container_name = container_name,
         blob_name = blob,
         conn_str = connection_string
     )
-    blob_client.set_blob_metadata(metadata = metadata2)
-
+    blob_client.set_blob_metadata(metadata = metadata)
