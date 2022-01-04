@@ -75,9 +75,9 @@ def new_shape(docs):
         new_shape["content"]=item["content"]
         new_shape["keyPhrases"]=item["keyPhrases"]
         new_shape["merged_text"]=item["merged_text"]
-        new_shape["Test1"]=item["Test1"]
-        new_shape["Test2"]=item["Test2"]
-        new_shape["Test3"]=item["Test3"]
+        new_shape["FileName"]=item["FileName"]
+        new_shape["DocumentTitle"]=item["DocumentTitle"]
+        new_shape["DocumentType"]=item["DocumentType"]
           
         new_document["document"]=new_shape
         

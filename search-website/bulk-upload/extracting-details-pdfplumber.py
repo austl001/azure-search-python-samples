@@ -67,3 +67,4 @@ df = pd.DataFrame(
 print(df)
 
 df.to_pickle("bulk-upload/blob.metadata.pkl")
+

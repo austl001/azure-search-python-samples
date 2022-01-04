@@ -41,7 +41,7 @@ export default function Details() {
       resultStyle += " active";
       detailsBody = (
         <div className="card-body">
-          <h5 className="card-title">{document.metadata_storage_name}</h5>
+          <h5 className="card-title">{document.DocumentTitle}</h5>
           <p className="card-text results">{document.merged_text}</p>
         </div>
       );

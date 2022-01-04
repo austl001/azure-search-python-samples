@@ -11,7 +11,7 @@ export default function Result(props) {
         <div className="card-body">
             <h5 className="title-style">
                 <a href={`/details/${props.document.id}`}>
-                {props.document.metadata_storage_name}
+                {props.document.DocumentTitle}
                 </a>
             </h5>
             <h6>Search Score: {props.score.toLocaleString()}</h6>
