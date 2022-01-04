@@ -58,7 +58,7 @@ index = {
       "sortable": False
     },
     {
-      "name": "Test1",
+      "name": "FileName",
       "type": "Edm.String",
       "searchable": True,
       "filterable": True,
@@ -66,7 +66,7 @@ index = {
       "sortable": True
     },
     {
-      "name": "Test2",
+      "name": "DocumentTitle",
       "type": "Edm.String",
       "searchable": True,
       "filterable": True,
@@ -74,7 +74,7 @@ index = {
       "sortable": True
     },
     {
-      "name": "Test3",
+      "name": "DocumentType",
       "type": "Edm.String",
       "searchable": True,
       "filterable": True,
@@ -86,7 +86,7 @@ index = {
     {
       "name" : "sg",
       "searchMode": "analyzingInfixMatching",
-      "sourceFields": ["metadata_storage_name"]
+      "sourceFields": ["metadata_storage_name", "DocumentTitle"]
     }
   ]
 }
@@ -125,16 +125,16 @@ indexer = {
       "targetFieldName" : "content"
     },
     {
-      "sourceFieldName" : "Test1",
-      "targetFieldName" : "Test1"
+      "sourceFieldName" : "FileName",
+      "targetFieldName" : "FileName"
     },
     {
-      "sourceFieldName" : "Test2",
-      "targetFieldName" : "Test2"
+      "sourceFieldName" : "DocumentTitle",
+      "targetFieldName" : "DocumentTitle"
     },
     {
-      "sourceFieldName" : "Test3",
-      "targetFieldName" : "Test3"
+      "sourceFieldName" : "DocumentType",
+      "targetFieldName" : "DocumentType"
     }
   ],
   "outputFieldMappings" :
@@ -168,7 +168,6 @@ uri = f"https://{service_name}.search.windows.net/indexers/{indexer_name}?api-ve
 resp = requests.put(uri, headers = headers, data = json.dumps(indexer))
 print(resp.status_code)
 print(resp.ok)
-
 
 uri = f"https://{service_name}.search.windows.net/indexers/{indexer_name}/status?api-version={api_version}"
 
