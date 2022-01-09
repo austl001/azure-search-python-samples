@@ -11,26 +11,44 @@ with open("api/local.settings.json") as read_file:
 service_name = config["Values"]["SearchServiceName"]
 api_version = config["Values"]["ApiVersion"]
 connection_string = config["Values"]["BlobConnectionString"]
-
 blob_service_client = BlobServiceClient.from_connection_string(connection_string)
-
 container_name = "mosl-pdf-container"
-
 container_client = blob_service_client.get_container_client(container_name)
 
-blob_list = container_client.list_blobs()
-blobs_pdf_list = []
-for blob in blob_list:
-    blobs_pdf_list.append(blob.name)
-print(blobs_pdf_list)
-len(blobs_pdf_list)
+# Get list of blobs
 
-# Setting meta data
+blob_list = container_client.list_blobs()
+
+blobs_list = []
+
+for blob in blob_list:
+    blobs_list.append(blob.name)
+
+for blob in blobs_list:
+    print(blob)
+
+# Retrieving metadata as dataframe
 
 df = pd.DataFrame(pd.read_pickle("bulk-upload/blob.metadata.pkl"))
 
-for blob in blobs_pdf_list:
-    df_blob = df[df["FileName"] == blob]
+df_blobs = pd.DataFrame({"FileName" : blobs_list})
+
+# Check length of metadata file is the same as list of blobs
+
+len(df_blobs) == len(df)
+
+len(set(df_blobs["FileName"]))
+
+len(df["FileName"])
+
+all(item in blobs_list for item in df["FileName"])
+
+df_meta = df_blobs.join(df.set_index("FileName"), on = "FileName")
+
+# Upload metdata
+
+for blob in blobs_list:
+    df_blob = df_meta[df_meta["FileName"] == blob]
     metadata = df_blob.to_dict(orient = "records")[0]
     blob_client = BlobClient.from_connection_string(
         container_name = container_name,
@@ -38,3 +56,4 @@ for blob in blobs_pdf_list:
         conn_str = connection_string
     )
     blob_client.set_blob_metadata(metadata = metadata)
+

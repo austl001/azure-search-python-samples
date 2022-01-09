@@ -103,3 +103,4 @@ venv.bak/
 # mypy
 .mypy_cache/
 search-website/api/local.settings.json
+search-website/bulk-upload/blob.metadata.pkl

@@ -6,13 +6,37 @@ import json
 with open("api/local.settings.json") as read_file:
     config = json.load(read_file)
 
+# create Azure Cognitive Search Service
+# az search service create --name search-test-123 --resource-group test-rg --location westeurope --sku free
+
+# connect Azure cognitive search to the blob storage
+
 service_name = config["Values"]["SearchServiceName"]
 api_version = config["Values"]["ApiVersion"]
+
+connection_string = config["Values"]["BlobConnectionString"]
+
+container_name = config["Values"]["BlobContainerName"]
 
 headers = {
     'Content-Type': 'application/json',
     'api-key': config["Values"]["SearchApiKey"]
 }
+
+datasource_name = "blob-datasource"
+
+uri = f"https://{service_name}.search.windows.net/datasources?api-version={api_version}"
+
+body = {
+    "name": datasource_name,
+    "type": "azureblob",
+    "credentials": {"connectionString": connection_string},
+    "container": {"name": container_name}
+}
+
+resp = requests.post(uri, headers = headers, data = json.dumps(body))
+print(resp.status_code)
+print(resp.ok)
 
 index = {
   "fields": [

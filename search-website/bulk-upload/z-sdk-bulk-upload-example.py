@@ -32,7 +32,7 @@ endpoint = "https://{}.search.windows.net/".format(service_name)
 index_name = 'good-books'
 
 # Search Index Schema definition
-index_schema = './good-books-index.json'
+index_schema = './z-good-books-index.json'
 
 # Books catalog
 books_url = "https://raw.githubusercontent.com/zygmuntz/goodbooks-10k/master/books.csv"
