@@ -24,13 +24,17 @@
       "route": "/.auth/login/twitter",
       "statusCode": 404
     },
+    {
+      "route": "/home",
+      "redirect": "/",
+      "statusCode": 301
+    },
     { 
       "route": "/search",
       "allowedRoles": ["authenticated"]
     },
     { 
       "route": "/api/*",
-      "methods": ["GET"],
       "allowedRoles": ["authenticated"]
     },
     { 
