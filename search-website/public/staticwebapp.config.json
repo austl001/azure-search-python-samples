@@ -40,11 +40,6 @@
       { 
         "route": "/details/*",
         "allowedRoles": ["authenticated"]
-      },
-      {
-        "route": "/*",
-        "redirect": "/",
-        "statusCode": 200
       }
     ],
     "responseOverrides": 
