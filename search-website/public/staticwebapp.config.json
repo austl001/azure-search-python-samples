@@ -1,0 +1,62 @@
+{
+    "routes": [
+      {
+        "route": "/logout",
+        "redirect": "/.auth/logout"
+      },
+      {
+        "route": "/login",
+        "rewrite": "/.auth/login/aad"
+      },
+      {
+        "route": "/.auth/login/github",
+        "statusCode": 404
+      },
+      {
+        "route": "/.auth/login/google",
+        "statusCode": 404
+      },
+      {
+        "route": "/.auth/login/facebook",
+        "statusCode": 404
+      },
+      {
+        "route": "/.auth/login/twitter",
+        "statusCode": 404
+      },
+      {
+        "route": "/home",
+        "redirect": "/",
+        "statusCode": 301
+      },
+      { 
+        "route": "/search",
+        "allowedRoles": ["authenticated"]
+      },
+      { 
+        "route": "/api/*",
+        "allowedRoles": ["authenticated"]
+      },
+      { 
+        "route": "/details/*",
+        "allowedRoles": ["authenticated"]
+      },
+      {
+        "route": "/*",
+        "redirect": "/",
+        "statusCode": 200
+      }
+    ],
+    "responseOverrides": 
+      {
+        "400": {
+        "redirect": "/login"
+      },
+      "401": {
+        "redirect": "/login"
+      },
+      "404": {
+        "rewrite": "/404.html"
+      }
+    }    
+  }
